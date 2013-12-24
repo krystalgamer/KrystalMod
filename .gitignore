@@ -9,6 +9,7 @@
 /ibxm
 /net
 /paulscode
+/assets
 *.cfg
 fmlversion.properties
 deobfuscation_data-1.6.4.lzma
