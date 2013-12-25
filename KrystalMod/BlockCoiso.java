@@ -1,3 +1,11 @@
+/* 
+ * Author: KrystalGamer
+ * Date: 24/12/2013
+ * Description: Base file of the Block
+ * Changes: Setting Base File
+ *
+ */
+
 package KrystalMod;
 
 import net.minecraft.block.Block;

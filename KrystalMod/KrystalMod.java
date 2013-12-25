@@ -30,13 +30,14 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class KrystalMod {
 	
 	public KrystalAPI krystal;
-	
 	public static final Block coiso = (new BlockCoiso(1009)).setHardness(0.5F);
+	public static final Item cake = (new ItemMine(1010));
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent fpi)
 	{
 		krystal.registerBlock(coiso, "coiso", "Sexy");
+		krystal.registerItem(cake, "cake", "Muy Sexy");
 		/*GameRegistry.registerBlock(coiso, "coiso");
 		LanguageRegistry.addName(coiso, "sexy");*/
 	}
