@@ -16,6 +16,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class KrystalAPI {
 	
+	public static int dur;
 	
 	/**
 	 * 
@@ -46,20 +47,27 @@ public class KrystalAPI {
 		
 	}
 	/**
-	 *  Returns the item durability(NOT WORKING)
-	 *  
-	 * @param item The item
-	 * @return Item durability
+	 * 
+	 * @param item The Item
+	 * @param stack The ItemStack :O
+	 * @return The item durability
 	 */
-	public static int ItemDurability(Item item){
+	public static int ItemDurability(Item item, ItemStack stack){
 		
-		int dur;
-		ItemStack stack = new ItemStack(item);
-		dur = item.getDisplayDamage(stack);
+		dur = item.getMaxDamage() - item.getDisplayDamage(stack);
 		
 		return dur;
 		
+	}
+	
+	public static void RunItemDur(Item item, ItemStack stack)
+	{
+		
+		
+		
 		
 	}
+	
+	
 
 }
