@@ -10,7 +10,9 @@ package KrystalMod;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemSword;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Init;
@@ -32,12 +34,14 @@ public class KrystalMod {
 	public KrystalAPI krystal;
 	public static final Block coiso = (new BlockCoiso(1009)).setHardness(0.5F);
 	public static final Item cake = (new ItemMine(1010));
+	public static final Item slol = (new ItemTeste(1027, EnumToolMaterial.EMERALD));
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent fpi)
 	{
 		krystal.registerBlock(coiso, "coiso", "Sexy");
 		krystal.registerItem(cake, "cake", "Muy Sexy");
+		krystal.registerItem(slol, "slol", "coisinha my");
 		/*GameRegistry.registerBlock(coiso, "coiso");
 		LanguageRegistry.addName(coiso, "sexy");*/
 	}

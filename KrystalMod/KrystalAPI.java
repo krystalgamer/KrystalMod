@@ -9,14 +9,18 @@
 package KrystalMod;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.client.FMLClientHandler;
 
 public class KrystalAPI {
 	
 	public static int dur;
+	Minecraft mc = FMLClientHandler.instance().getClient();
 	
 	/**
 	 * 
@@ -60,10 +64,18 @@ public class KrystalAPI {
 		
 	}
 	
-	public static void RunItemDur(Item item, ItemStack stack)
+	public static ItemStack EchantItem(Enchantment en,ItemStack item, int level)
 	{
-		
-		
+		//ItemStack cake = new ItemStack(item);
+		if(item.isItemEnchanted())
+		{
+			return item;	
+		}
+		else	{
+			
+		item.addEnchantment(en, level);
+		}
+		return item;
 		
 		
 	}
