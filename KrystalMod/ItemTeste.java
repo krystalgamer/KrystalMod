@@ -1,5 +1,7 @@
 package KrystalMod;
 
+import java.util.Random;
+
 import com.google.common.collect.Multimap;
 
 import cpw.mods.fml.relauncher.Side;
@@ -8,6 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -21,6 +24,7 @@ import net.minecraft.world.World;
 public class ItemTeste extends Item
 {
     private float weaponDamage;
+    public Random rand = new Random();
     public KrystalAPI api;
     private final EnumToolMaterial toolMaterial;
 
@@ -110,7 +114,7 @@ public class ItemTeste extends Item
     {
         //par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
     	
-        return api.EchantItem(Enchantment.sharpness, par1ItemStack, 1);
+        return api.EnchantItem(Enchantment.sharpness, par1ItemStack, 1);
     }
 
     /**
@@ -155,4 +159,12 @@ public class ItemTeste extends Item
         return multimap;
     }
     
+    public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3, int par4, boolean par5) {
+    	
+    		par2World.spawnParticle("flame", par3.posX, par3.posY,par3.posZ, 2.0D, 0.0D, 3.0D);
+    	
+    	
+    	
+    		//par2World.spawnParticle("flame", par3.posX + 2, par3.posY, par3.posZ, 0.0D, 0.0D, 0.0D);
+    	}
 }

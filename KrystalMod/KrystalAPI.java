@@ -8,11 +8,14 @@
 
 package KrystalMod;
 
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.client.FMLClientHandler;
@@ -20,7 +23,7 @@ import cpw.mods.fml.client.FMLClientHandler;
 public class KrystalAPI {
 	
 	public static int dur;
-	Minecraft mc = FMLClientHandler.instance().getClient();
+	public static Minecraft mc = FMLClientHandler.instance().getClient();
 	
 	/**
 	 * 
@@ -51,6 +54,7 @@ public class KrystalAPI {
 		
 	}
 	/**
+	 * Returns The itemsDurability in the moment
 	 * 
 	 * @param item The Item
 	 * @param stack The ItemStack :O
@@ -63,8 +67,17 @@ public class KrystalAPI {
 		return dur;
 		
 	}
-	
-	public static ItemStack EchantItem(Enchantment en,ItemStack item, int level)
+	/**
+	 * Enchants an Item
+	 * 
+	 * @param en Desired Enchantment
+	 * @param item The ItemStack
+	 * @param level The level of the enchantment
+	 * @return The ItemStack with the Enchantment
+	 * 
+	 */
+	public static ItemStack EnchantItem(Enchantment en,ItemStack item, int level)
+
 	{
 		//ItemStack cake = new ItemStack(item);
 		if(item.isItemEnchanted())
@@ -79,6 +92,27 @@ public class KrystalAPI {
 		
 		
 	}
+	
+	//Not tested
+	
+	public static ItemStack EchantItem(Enchantment en,Item item, int level, int stacksize)
+
+	{
+		ItemStack cake = new ItemStack(item, stacksize);
+		if(cake.isItemEnchanted())
+		{
+			return cake;	
+		}
+		else	{
+			
+		cake.addEnchantment(en, level);
+		}
+		return cake;
+		
+		
+	}
+	
+	
 	
 	
 
