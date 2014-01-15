@@ -95,7 +95,7 @@ public class KrystalAPI {
 	
 	//Not tested
 	
-	public static ItemStack EchantItem(Enchantment en,Item item, int level, int stacksize)
+	public static ItemStack EnchantItem(Enchantment en,Item item, int level, int stacksize)
 
 	{
 		ItemStack cake = new ItemStack(item, stacksize);

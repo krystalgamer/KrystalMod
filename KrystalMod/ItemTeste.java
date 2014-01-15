@@ -114,7 +114,7 @@ public class ItemTeste extends Item
     {
         //par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
     	
-        return api.EnchantItem(Enchantment.sharpness, par1ItemStack, 1);
+        return api.EnchantItem(Enchantment.sharpness, this, 1, 1);
     }
 
     /**
