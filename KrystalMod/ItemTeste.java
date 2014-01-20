@@ -1,13 +1,16 @@
 package KrystalMod;
 
+import java.util.List;
 import java.util.Random;
 
 import com.google.common.collect.Multimap;
 
+import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.particle.EntityFX;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
@@ -19,6 +22,7 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
 public class ItemTeste extends Item
@@ -113,7 +117,10 @@ public class ItemTeste extends Item
     public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
     {
         //par3EntityPlayer.setItemInUse(par1ItemStack, this.getMaxItemUseDuration(par1ItemStack));
-    	
+    	Random rand = new Random();
+    	par3EntityPlayer.respawnPlayer();
+    	//par3EntityPlayer.addChatMessage("" + (rand.nextFloat() * 0.6F -0.3F));
+    	//par3EntityPlayer.addChatMessage("" + (rand.nextFloat() * -0.6F - -0.3F));
         return api.EnchantItem(Enchantment.sharpness, this, 1, 1);
     }
 
@@ -159,9 +166,20 @@ public class ItemTeste extends Item
         return multimap;
     }
     
+    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+    	
+    	par3List.add(EnumChatFormatting.DARK_GREEN + "CAKE");
+    }
+    
     public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3, int par4, boolean par5) {
     	
-    		par2World.spawnParticle("flame", par3.posX, par3.posY,par3.posZ, 2.0D, 0.0D, 3.0D);
+    	if(par3.isDead)
+    	{
+    		FMLClientHandler.instance().getClient().thePlayer.respawnPlayer();
+    	}
+    		//par2World.spawnParticle("banana", par3.posX, par3.posY,par3.posZ, 2.0D, 0.0D, 3.0D);
+    		
+    	//api.Queijo(new EntityBananaFX(par2World,par3.posX, par3.posY, par3.posZ, 0.0D, 0.0D, 0.0D ));
     	
     	
     	

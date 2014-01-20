@@ -11,8 +11,11 @@ package KrystalMod;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.particle.EntityFX;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -22,8 +25,10 @@ import cpw.mods.fml.client.FMLClientHandler;
 
 public class KrystalAPI {
 	
-	public static int dur;
-	public static Minecraft mc = FMLClientHandler.instance().getClient();
+	private static int dur;
+	public static boolean title = true;
+	public static boolean coiso = true;
+	private static Minecraft mc = FMLClientHandler.instance().getClient();
 	
 	/**
 	 * 
@@ -109,6 +114,45 @@ public class KrystalAPI {
 		}
 		return cake;
 		
+		
+	}
+	
+	/**
+	 * Gets the player inventory
+	 * 
+	 * @return Player Inventory
+	 */
+	
+	public static InventoryPlayer PlayerInventory()
+	{
+		return mc.thePlayer.inventory;
+		
+	}
+	
+	public static void Queijo(EntityFX fx)
+	{
+		EntityFX entity = null;
+		entity = fx;
+		
+		mc.effectRenderer.addEffect((EntityFX)entity);
+		
+		//if(entity != null)
+		//{
+		//	//return (EntityFX)entity;
+		//}
+		//return (EntityFX)entity;
+		
+		
+		//return (entity != null) ? (EntityFX)entity : null;
+		
+		
+		
+	}
+	
+	public EntityFX newParticle()
+	{
+		
+		return null;
 		
 	}
 	
